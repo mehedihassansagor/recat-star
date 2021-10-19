@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import { Rating } from 'react-simple-star-rating'
+
+
 
 function App() {
+  const [rating, setRating] = useState(0) // initial rating value
+
+  // Catch Rating value
+  const handleRating = (rate) => {
+    setRating(rate)
+    // Some logic
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Rating onClick={handleRating} ratingValue={rating} /* Rating Props */ />
     </div>
   );
 }
